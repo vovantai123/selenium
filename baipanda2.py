@@ -51,3 +51,8 @@ nhanvienmoi = pd.DataFrame({
 
 # Thêm nhân viên mới vào bảng cũ
 nhanviensaukhigopthanhcong = pd.concat([danhsachnhanvien, nhanvienmoi], ignore_index=True)
+print(nhanvienit25)
+print(danhsachSalary_after_taxgiamdan)
+print(tinhtrungbinhDepartment)
+print(noi2bangnhanvienvaphongban)
+print(nhanviensaukhigopthanhcong)
