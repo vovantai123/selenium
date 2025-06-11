@@ -31,7 +31,7 @@ for tai11 in tai:
 
         # Lưu vào Excel
         df = pd.DataFrame(data)
-        df.to_excel("products.xlsx", index=False)
+        df.to_excel(f"{tai11}.xlsx", index=False)
 
         print("Đã lưu danh sách sản phẩm vào 'products.xlsx'.")
 
