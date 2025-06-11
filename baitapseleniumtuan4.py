@@ -21,7 +21,7 @@ for product in products:
     price = product.find_element(By.CLASS_NAME, "inventory_item_price").text
     data.append({"Product Name": name, "Price": price})
 
-# Lưu vào Excel
+
 df = pd.DataFrame(data)
 df.to_excel("products.xlsx", index=False)
 
@@ -31,7 +31,6 @@ print("Đã lưu danh sách sản phẩm vào 'products.xlsx'.")
 driver.get("https://thuvienphapluat.vn/ma-so-thue/tra-cuu-ma-so-thue-doanh-nghiep")
 driver.implicitly_wait(10)
 
-# Lấy dữ liệu từ class
 elements = driver.find_elements(By.CLASS_NAME, "item_mst") + driver.find_elements(By.CLASS_NAME, "item_mst_o")
 
 data = []
