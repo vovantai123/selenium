@@ -25,7 +25,7 @@ for product in products:
 df = pd.DataFrame(data)
 df.to_excel("products.xlsx", index=False)
 
-print("✅ Đã lưu danh sách sản phẩm vào 'products.xlsx'.")
+print("Đã lưu danh sách sản phẩm vào 'products.xlsx'.")
 
 
 driver.get("https://thuvienphapluat.vn/ma-so-thue/tra-cuu-ma-so-thue-doanh-nghiep")
