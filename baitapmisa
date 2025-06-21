@@ -1,0 +1,37 @@
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import pandas as pd
+import time
+from selenium.webdriver.chrome.options import Options
+
+options = Options()
+prefs = {
+    "plugins.always_open_pdf_externally": True,
+    "download.default_directory": r"E:\toolthaotac\RegUnlock-Instagram\RegUnlock-Instagram",
+    "download.prompt_for_download": False
+}
+options.add_experimental_option("prefs", prefs)
+options.add_argument("--disable-notifications")
+#options.add_argument("--disable-features=PasswordChangeDetection,PasswordLeakDetection")
+chromedriver_path = "chromedriver.exe"
+service = ChromeService(executable_path=chromedriver_path,options=options)
+driver = webdriver.Chrome(service=service,options=options)
+while True:
+    driver.get("https://www.meinvoice.vn/tra-cuu")
+    driver.implicitly_wait(10)
+    driver.find_element(By.NAME, "txtCode").send_keys("B1HEIRR8N0WP")
+    time.sleep(0.1)
+    driver.implicitly_wait(10)
+    driver.find_element(By.ID,"btnSearchInvoice").click()
+    if "Thông tin hóa đơn" in driver.page_source:
+        print("Hóa đơn tồn tại")
+        break
+driver.implicitly_wait(10)
+iframe_element = driver.find_element(By.ID, "frmResult")
+pdf_url = iframe_element.get_attribute("src")
+
+print("Link PDF:", pdf_url)
+driver.get(pdf_url)
+time.sleep(5)
+driver.quit()
